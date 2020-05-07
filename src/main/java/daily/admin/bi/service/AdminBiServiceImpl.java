@@ -29,4 +29,12 @@ public class AdminBiServiceImpl implements AdminBiService{
 		return biDao.reservationCnt();
 	}
 
+
+	@Override
+	public List<AdminBiVO> searchList(AdminBiVO biVO) {
+		return biDao.searchList(biVO);
+	}
+
+
+
 }

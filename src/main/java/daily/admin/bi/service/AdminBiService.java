@@ -12,4 +12,6 @@ public interface AdminBiService {
 
 	public List<Integer> reservationCnt();
 	
+	public List<AdminBiVO> searchList(AdminBiVO biVO);
+	
 }

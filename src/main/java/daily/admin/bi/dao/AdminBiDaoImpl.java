@@ -27,4 +27,10 @@ public class AdminBiDaoImpl implements AdminBiDao {
 		return sqlsession.selectList("reservationCnt");
 	}
 
+	@Override
+	public List<AdminBiVO> searchList(AdminBiVO biVO) {
+		return sqlsession.selectList("searchList",biVO);
+	}
+
+
 }

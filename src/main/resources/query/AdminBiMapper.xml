@@ -4,19 +4,6 @@
 
 <mapper namespace="daily.bi.dao.AdminBiDao">
 
-	<select id="list" resultType="bi">
-		SELECT
-		rest_hairdate , sum(rest_totalprice)
-		FROM
-		reservation
-		WHERE
-		rest_state = 2 and rest_hairdate between '20/04/20' and '20/05/30'
-		GROUP BY
-		rest_hairdate
-		order BY
-		rest_hairdate ASC
-	</select>
-
 
 	<select id="WeekList" resultType="bi">
 		<![CDATA[select rest_hairdate, sum(rest_totalprice) as rest_totalprice
@@ -41,5 +28,22 @@
 	select
 	
 	</select> -->
-
+	<select id="searchList" resultType="bi">
+	<![CDATA[select rest_hairdate, sum(rest_totalprice) as rest_totalprice
+		from ( select nvl(a.rest_totalprice,0) rest_totalprice, cal.rest_hairdate,
+		nvl(a.rest_state,0)
+		from (select rest_state, rest_totalprice, rest_hairdate
+		from reservation
+		where rest_state =2) a
+		full outer join (SELECT TO_CHAR((TO_DATE(#{fromDate}, 'YYYY/MM/DD')-1) + LEVEL, 'YYYY/MM/DD') as
+            rest_hairdate
+            FROM DUAL
+            CONNECT BY LEVEL <= #{minDate}) cal
+		on a.rest_hairdate = cal.rest_hairdate
+		where cal.rest_hairdate is not null
+		)
+		group by rest_hairdate
+		order by rest_hairdate]]>
+	
+	</select>
 </mapper>
