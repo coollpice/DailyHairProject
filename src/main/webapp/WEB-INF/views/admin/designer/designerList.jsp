@@ -19,13 +19,6 @@ float: left;
 </style>
 <script type="text/javascript">
 
-/* function fn_fileDown(des_num){
-	var formObj = $("#detailForm");
-	$("#des_num").attr("value",des_num);
-	formObj.attr("action","/admin/designer/download.do");
-	formObj.submit();
-} */
-
 	$(function() {
 		//디자이너 등록 버튼 클릭시 팝업창을 띄운다
 		$("#insertDesigner").click(
@@ -59,7 +52,7 @@ float: left;
 										+ '<td>' + data[i].des_phone + '</td>'
 										+ '<td class='+'holyshit'+'>'
 										+ data[i].des_state + '</td>'
-										+ '<td>'+'<input type='+'button id='+'modify name='+'modify class='+'modify value='+'[상세보기/수정]'+'>'+'</td>'
+										+ '<td>'+'<input type='+'button id='+'modify name='+'modify class="btn modify" value='+'[상세보기/수정]'+'>'+'</td>'
 										+'</tr>'
 										
 									
@@ -84,20 +77,11 @@ float: left;
 							"width=900, height=700, left=600, top=100");
 				});
 		
-	/* 	//수정버튼을 클릭시 디자이너 수정폼을 띄운다
-		$(".modify").click(function() {
-					var des_num = $(this).parents("tr").attr("data-num");
-					$("#des_num").val(des_num);
-					alert(des_num);
-					window.open("designerUpdateForm.do?des_num=" + des_num,
-							"pop", "width=800, height=700, left=600, top=100");
-				}); */
 		
 		//수정버튼과 동적으로 생성된 수정버튼을 클릭시 디자이너 수정폼을 띄운다
 		$(document).on("click",".modify",function(event){
 			var des_num = $(this).parents("tr").attr("data-num");
 			$("#des_num").val(des_num);
-			alert(des_num);
 			window.open("designerUpdateForm.do?des_num=" + des_num,
 					"pop", "width=800, height=700, left=600, top=100");
 		});
@@ -171,7 +155,7 @@ float: left;
 			</table>
 		</div>
 		<div class="buttonContainer">
-			<input type="button" value="디자이너 등록" id="insertDesigner" class="btn"/>
+			<input type="button" value="디자이너 등록" id="insertDesigner" class="btn" />
 		</div>
 	</div>
 </body>

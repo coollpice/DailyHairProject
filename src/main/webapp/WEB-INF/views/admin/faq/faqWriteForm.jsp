@@ -50,26 +50,26 @@ textarea {
 		</div>
 		<div id="listMenu">
 			<p>
-				<input type="button" value="목록으로" class="but" id="faqListBtn">
+				<input type="button" value="목록으로" class="but btn" id="faqListBtn">
 			</p>
 		</div>
 		<form id="insertForm" name="insertForm">
 			<table>
 				<tr>
-					<td>질문</td>
-					<td><textarea id="faq_question" name="faq_question" cols="35"
+					<td><span style="color: red;">*</span>질문</td>
+					<td>&nbsp;&nbsp;<textarea id="faq_question" name="faq_question" cols="35"
 							rows="15" placeholder="질문을 입력해주세요."></textarea></td>
 				</tr>
 				<tr>
-					<td>답변</td>
-					<td><textarea id="faq_answer" name="faq_answer" cols="35"
+					<td><span style="color: red;">*</span>답변</td>
+					<td>&nbsp;&nbsp;<textarea id="faq_answer" name="faq_answer" cols="35"
 							rows="15" placeholder="답변을 입력해주세요."></textarea></td>
 				<tr>
 			</table>
 		</form>
 		<!-- 글 등록 버튼 시작-->
 		<div>
-			<input type="button" value="등록완료" class="but" id="faqInsertBtn">
+			<input type="button" value="등록완료" class="but btn" id="faqInsertBtn">
 		</div>
 		<!-- 글 등록 버튼 끝-->
 	</div>

@@ -54,7 +54,7 @@ textarea {
 		<!-- 목록으로 버튼 -->
 		<div id="listMenu">
 		<p>
-			<input type="button" value="목록으로" class="but" id="faqListBtn">
+			<input type="button" value="목록으로" class="but btn" id="faqListBtn">
 		</p>
 		</div>
 		<!--게시글 내용 출력 시작-->
@@ -63,22 +63,22 @@ textarea {
 				value="${updateData.faq_num }" />
 			<table>
 				<tr>
-					<td>질문</td>
-					<td><textarea id="faq_question" name="faq_question" cols="35"
-							rows="15">${updateData.faq_question}</textarea></td>
+					<td><span style="color: red;">*</span>질문</td>
+					<td>&nbsp;&nbsp;<textarea id="faq_question" name="faq_question" cols="35"
+							rows="15" style="border-radius: 5px;">${updateData.faq_question}</textarea></td>
 				</tr>
 				<tr>
-					<td>답변</td>
-					<td><textarea id="faq_answer" name="faq_answer" cols="35"
-							rows="15">${updateData.faq_answer}</textarea></td>
+					<td><span style="color: red;">*</span>답변</td>
+					<td>&nbsp;&nbsp;<textarea id="faq_answer" name="faq_answer" cols="35"
+							rows="15" style="border-radius: 5px;">${updateData.faq_answer}</textarea></td>
 				</tr>
 			</table>
 		</form>
 		<!-- 게시글 내용 출력 끝 -->
 		<!-- 글 등록 버튼 시작-->
 		<div>
-			<input type="button" value="수정완료" class="but" id="faqUpdateBtn">
-			<input type="button" value="게시글 삭제" class="but" id="faqDeleteBtn">
+			<input type="button" value="수정완료" class="but btn" id="faqUpdateBtn">
+			<input type="button" value="게시글 삭제" class="but btn" id="faqDeleteBtn">
 
 		</div>
 		<!-- 글 등록 버튼 끝-->

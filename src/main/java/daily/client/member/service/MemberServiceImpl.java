@@ -82,4 +82,10 @@ public class MemberServiceImpl implements MemberService {
 		dao.pwModify(vo);
 	}
 	
+	//이메일 인증시 사용
+	@Override
+	public int emailupdateState(String m_id) {
+		return dao.emailupdateState(m_id);
+	}
+	
 }

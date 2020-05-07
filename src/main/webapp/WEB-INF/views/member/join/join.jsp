@@ -227,7 +227,9 @@
 					//이메일의 앞 부분 텍스트와 뒷부분 주소를 합침
 					$("#m_email").val($("#m_email").val() + "@" + $("#emailDomain").val());
 					//null 대신에 '없음'을 넣는다.
-					$("#m_memo").val($("#m_memo").val() + "없음");
+					if($("#m_memo").val()==''){
+						$("#m_memo").val("-");	
+					}
 
 					//가입 버튼을 눌렀을 때 post형식으로 보냄시킴
 					$("#insertForm").attr("method", "post");

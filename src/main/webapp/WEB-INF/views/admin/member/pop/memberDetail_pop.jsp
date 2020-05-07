@@ -114,6 +114,9 @@ width : 110px;
 			<c:if test="${detail.m_state == 1}">
 				<td>활성화</td>
 			</c:if>
+			<c:if test="${detail.m_state == 2}">
+				<td>인증단계</td>
+			</c:if>
 		</option>
 		<option value="#">-----------</option>
 		<option value="1">활성</option>

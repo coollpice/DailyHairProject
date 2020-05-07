@@ -48,7 +48,9 @@ public class AdminQnaController {
 
 		return mav;
 	}
-
+	
+	
+	//상세보기
 	@RequestMapping(value = "/qna/qnaDetail.do")
 	public ModelAndView qnaDetail(@ModelAttribute QnaVO qvo) {
 		log.info("QnA Detail 호출 메소드 실행");

@@ -112,7 +112,7 @@
 			$("#pwModifyForm").attr('method','post');
 			$("#pwModifyForm").attr("action","/member/login/pwModify.do");
 			$("#pwModifyForm").submit();
-			alert("패스워드가 변경 되었습니다.");
+			alert("비밀번호 수정이 완료되었습니다.\n로그인 화면으로 이동합니다.");
 			
 		});
 	   

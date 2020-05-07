@@ -7,8 +7,9 @@
 <meta charset="UTF-8">
 <title>1:1문의 상세보기</title>
 <style type="text/css">
+
 .he {
-	background-color: #c7daf1;
+	background-color: #f2f2f2;
 }
 
 .mainContainer>table, #reply {
@@ -35,9 +36,6 @@ textarea {
 	border: 1px dashed;
 }
 
-div>.he {
-	position: top;
-}
 
 img {
 	width: 500px;
@@ -55,6 +53,10 @@ img {
 
 #inputArea {
 	margin: 5px;
+}
+
+.tc{
+color: gray;
 }
 </style>
 <script type="text/javascript"
@@ -150,68 +152,78 @@ img {
 <body>
 	<form name="downForm" id="downForm"></form>
 	<h1>1:1 문의 상세보기</h1>
-	<input type="button" name="listBtn" id="listBtn" value="목록으로" />
+	<input type="button" name="listBtn" id="listBtn" value="목록으로" class="btn"/>
 	<div class="mainContainer">
 		<table border="1" id="formTable">
+			<colgroup>
+				<col width="10%"/>
+				<col width="10%"/>
+				<col width="10%"/>
+				<col width="25%"/>
+				<col width="10%"/>
+				<col width="10%"/>
+				<col width="10%"/>
+				<col width="15%"/>
+			</colgroup>
 			<tr>
 				<td class="he">글번호</td>
-				<td>${detail.qna_num}</td>
+				<td class="tc">${detail.qna_num}</td>
 				<td class="he">제목</td>
-				<td>${detail.qna_title}</td>
+				<td class="tc">${detail.qna_title}</td>
 				<td class="he">작성자</td>
-				<td>${detail.m_id}</td>
+				<td class="tc">${detail.m_id}</td>
 				<td class="he">작성일</td>
-				<td>${detail.qna_regdate}</td>
+				<td class="tc">${detail.qna_regdate}</td>
 
 			</tr>
 			<c:choose>
 				<c:when test="${not empty detail.qna_file}">
 					<tr>
 						<td class="he" rowspan="2">첨부파일</td>
-						<td colspan="7"
+						<td colspan="7" class="tc"
 							style="text-align: left; padding-left: 5px; border-bottom: none;">${detail.qna_file}</td>
 					</tr>
 					<tr id="imgRow">
 						<td colspan="7"
 							style="text-align: left; padding-left: 5px; border-top: none;"><img
 							src="/uploadStorage/qna/${detail.qna_file}"
-							alt="${detail.qna_file}"></td>
+							alt="${detail.qna_file}" ></td>
 					</tr>
 				</c:when>
 				<c:otherwise>
 					<tr>
 						<td class="he">첨부파일</td>
-						<td colspan="7"></td>
+						<td colspan="7" ></td>
 					</tr>
 				</c:otherwise>
 			</c:choose>
 			<tr>
 				<td id="qna_content" class="he">문의 내용</td>
-				<td id="qna_content" colspan="7" style="text-align: left;">${detail.qna_content}</td>
+				<td id="qna_content" colspan="7" style="text-align: left;" class="tc">${detail.qna_content}</td>
 			</tr>
 		</table>
 	</div>
 	<c:choose>
 		<c:when test="${detail.qna_state==0}">
-			<div id="reply">
+			<div id="reply" style="margin-top: 30px;">
 				<form id="replyForm">
 					<input type="hidden" id="qna_num" name="qna_num"
 						value="${detail.qna_num}">
 
 					<table>
 						<tr>
-							<td class="he">작성자:</td>
+							<td class="he">작성자</td>
 							<td colspan="7"><input class="inputArea" type="text"
 								id="rep_name" name="rep_name" placeholder="작성자"></td>
 						</tr>
 						<tr>
-							<td class="he">내용:</td>
+							<td class="he">내용</td>
 							<td colspan="7" class="inputArea"><textarea
 									class="inputArea" id="rep_content" name="rep_content" rows="3"
 									cols="10" placeholder="내용을 입력해주세요"></textarea></td>
 						</tr>
 						<tr>
-							<td class="he">첨부파일:</td>
+							<td class="he">첨부파일</td>
 							<td colspan="7" class="inputArea"><input type="file"
 								id="uploadFile" name="uploadFile"></td>
 						</tr>
@@ -222,27 +234,27 @@ img {
 
 			<div class="btnContainer">
 				<input type="button" name="insertReply" id="insertReply"
-					value="답변입력" />
+					value="답변입력" class="btn"/>
 			</div>
 		</c:when>
 		<c:otherwise>
-			<div id="reply">
+			<div id="reply" style="margin-top: 30px;">
 				<form id="replyForm">
 					<input type="hidden" id="qna_num" name="qna_num"
 						value="${detail.qna_num}">
 					<table>
 						<tr>
-							<td class="he">작성자:</td>
-							<td>${reply.rep_name}</td>
+							<td class="he">작성자</td>
+							<td class="tc" >${reply.rep_name}</td>
 						</tr>
 						<tr>
-							<td class="he">내용:</td>
-							<td>${reply.rep_content}</td>
+							<td class="he">내용</td>
+							<td class="tc">${reply.rep_content}</td>
 						</tr>
 						<tr>
 
 
-							<td class="he">첨부파일 :</td>
+							<td class="he">첨부파일 </td>
 							<c:choose>
 								<c:when test="${not empty reply.rep_file}">
 									<td><img src="/uploadStorage/reply/${reply.rep_file}"></td>
@@ -261,7 +273,7 @@ img {
 
 			<div class="btnContainer">
 				<input type="button" name="deleteRepBtn" id="deleteRepBtn"
-					value="답글삭제" />
+					value="답글삭제" class="btn" />
 			</div>
 		</c:otherwise>
 	</c:choose>

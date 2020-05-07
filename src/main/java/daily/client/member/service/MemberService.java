@@ -37,4 +37,8 @@ public interface MemberService {
 	//패스워드 수정
 	public void pwModify(MemberVO vo) throws Exception;
 	
+	//이메일인증시 사용
+	public int emailupdateState(String m_id);
+		
+	
 }

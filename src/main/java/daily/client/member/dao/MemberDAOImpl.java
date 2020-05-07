@@ -81,5 +81,11 @@ public class MemberDAOImpl implements MemberDAO {
 	public void pwModify(MemberVO vo) throws Exception {
 		sql.update("pwModify", vo);
 	}
+
+	//이메일 인증시 사용
+	@Override
+	public int emailupdateState(String m_id) {
+		return sql.update("emailupdateState",m_id);
+	}
 	
 }

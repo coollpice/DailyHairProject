@@ -74,6 +74,18 @@
 <script type="text/javascript">
 	$(function() {
 		$("#loginBtn").click(function() {
+			
+			if($("#ad_id").val()==''){
+				alert("아이디를 입력해주세요");
+				$("#ad_id").focus();
+				return false;
+			}else if ($("#ad_pwd").val()==''){
+				alert("비밀번호를 입력해주세요");
+				$("#ad_pwd").focus();
+				return false;
+			}
+			
+			
 			$("#loginForm").attr("method", "post");
 			$("#loginForm").attr("action", "/admin/adminLogin.do");
 			$("#loginForm").submit();
@@ -84,6 +96,10 @@
 		if (msg != "") {
 			alert(msg);
 		}
+		
+		$("#goClient").click(function(){
+			location.href="/client/main.do";
+		});
 	});
 </script>
 </head>
@@ -123,6 +139,7 @@
 					
 					<div class="form-group">
 						<input type="button" value="로그인" id="loginBtn" class="adminLogin_btn" />
+						<input type="button" value="사용자페이지로" id="goClient" class="adminLogin_btn" />
 					</div>
 				</form>
 			</div>

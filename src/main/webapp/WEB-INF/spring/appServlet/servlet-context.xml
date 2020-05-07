@@ -53,7 +53,7 @@
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="defaultEncoding" value="UTF-8" />
-		<beans:property name="maxUploadSize" value="5242880" />
+		<beans:property name="maxUploadSize" value="10145728" />
 	</beans:bean>
 
 	<context:component-scan
@@ -64,8 +64,8 @@
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<beans:property name="host" value="smtp.gmail.com" />
 		<beans:property name="port" value="587" />
-		<beans:property name="username" value="사용할 이메일" />
-		<beans:property name="password" value="비밀번호" />
+		<beans:property name="username" value="coollpice@gmail.com" />
+		<beans:property name="password" value="kimgy1120!" />
 		<beans:property name="javaMailProperties">
 			<beans:props>
 				<beans:prop key="mail.smtp.ssl.trust">smtp.gmail.com</beans:prop>

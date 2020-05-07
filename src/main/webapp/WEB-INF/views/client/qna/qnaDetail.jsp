@@ -157,7 +157,7 @@ p > span { color: red; font: bold; }
 .tableBox2 { margin-bottom: 50px; padding: 15px 15px 5px 15px;
 			box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 			background-color: #FFFAFA;
-			min-height: 375px; height: auto; }
+			min-width: 1220px; min-height: 375px; height: auto; }
 .tableBox2 > div > label { margin-bottom: 25px; }
 .redSpan { color: red; }
 .miniDetail { font-size: 12px; display: inline; }
@@ -171,9 +171,8 @@ p > span { color: red; font: bold; }
 .replyBox > div > label { margin-bottom: 25px; }
 .replyBox > div > div > label > span { color: red; }
 
-.contentBox { border: 0px; resize: none;
-			width: 100%;
-			background-color: white; }
+.contentBox { border: 0px; resize: none; width: 100%;
+			background-color: #fffafa; }
 .ctBoxL { width: 80%; min-width: 940px; height: 350px; float: left; }
 .ctBoxR { width: 20%; min-width: 235px; height: 350px; float: right; }
 </style>

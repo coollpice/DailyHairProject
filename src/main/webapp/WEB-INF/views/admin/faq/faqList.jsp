@@ -44,7 +44,7 @@
 <div>
 <h2>자주하는 질문 관리</h2>
 </div>
-게시글 클릭시 수정 가능
+ <p><span style="color: red;">*</span>게시글 클릭시 상세보기/수정</p>
 	<div>
 		<%--====================상세 페이지 이동을 위한 Form =============== --%>
 		<form name="detailForm" id="detailForm">
@@ -53,13 +53,13 @@
 		<%--====================상세 페이지 이동을 위한 Form =============== --%>
 
 		<div id="faqList">
-			<table border="1" id="List" summary="게시판 리스트" class="table table-hover">
+			<table id="List" summary="게시판 리스트" class="table table-hover">
 				<colgroup>
 					<col />
 				</colgroup>
 				<thead>
 					<tr>
-						<th background="blue">글제목</th>
+						<th>글제목</th>
 					</tr>
 				</thead>
 				<tbody id="list">
@@ -84,7 +84,7 @@
 		</div>
 		<!-- 글 등록 버튼 시작-->
 		<div class="Btn">
-			<p><input type="button" id="faqInsertFormBtn" value="글등록"></p>
+			<p><input type="button" id="faqInsertFormBtn" value="글등록" class="btn"></p>
 		</div>
 		<!-- 글 등록 버튼 끝 -->
 	</div>

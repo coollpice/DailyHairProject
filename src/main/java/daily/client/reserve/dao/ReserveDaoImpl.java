@@ -35,5 +35,9 @@ public class ReserveDaoImpl implements ReserveDao {
 		return sqlSession.selectOne("confirmReservationCnt",m_id);
 	}
 
+	@Override
+	public ReserveVo myReservationDetail(int rest_num) {
+		return sqlSession.selectOne("myReservationDetail", rest_num);
+	}
 
 }

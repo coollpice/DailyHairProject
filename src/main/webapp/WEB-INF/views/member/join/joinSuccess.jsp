@@ -64,7 +64,7 @@
 	<!-- 자동으로 매장 선택 페이지로 이동 -->
 	<script type="text/javascript">
 	setTimeout(function(){
-		alert("메인화면으로 이동합니다.");
+		alert("메인화면으로 이동합니다.\n이메일인증을 진행해주세요");
 		location.replace("/client/main.do");
 	}, 1000);
 	</script>

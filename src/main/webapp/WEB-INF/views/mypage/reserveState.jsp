@@ -79,7 +79,7 @@ $(function() {
 		
 		
 		window.open("reservDetail.do?rest_num="+rest_num, "mypagePop",
-		"width=900, height=400, left=600, top=100");
+		"width=1400, height=570, left=100, top=100");
 		
 	});
 	
@@ -224,7 +224,7 @@ $(function() {
 					<table>
 						<thead class="qnaThead">
 							<tr>
-								<th class="thBottom"	width= "8%" style="padding-left: 15px;">매장위치</th>
+								<th class="thBottom"	width= "9%" style="padding-left: 15px;">매장위치</th>
 								<th class="thBottom2"	width= "2%" >│</th>
 								<th class="thBottom"	width="11%" >예약한 날짜</th>
 								<th class="thBottom2"	width= "2%" >│</th>
@@ -236,7 +236,7 @@ $(function() {
 								<th class="thBottom2"	width= "2%" >│</th>
 								<th class="thBottom"	width="25%" >요구사항</th>
 								<th class="thBottom2"	width= "2%" >│</th>
-								<th class="thBottom"	width="14%"  style="padding-right: 15px;">예약 상태</th>
+								<th class="thBottom"	width="13%"  style="padding-right: 15px;">예약 상태</th>
 							</tr>
 						</thead>
 						<tbody>

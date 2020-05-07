@@ -1,16 +1,20 @@
 package daily.client.member.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import daily.client.member.service.MailService;
 import daily.client.member.service.MemberService;
 import daily.client.member.vo.MemberVO;
 
@@ -25,6 +29,9 @@ public class MemberController {
 	
 	@Inject
 	private BCryptPasswordEncoder pwencoder;
+	
+	@Autowired
+	private MailService mailService;
 	
 	//이용약관
 	@RequestMapping(value = "/clause.do", method = RequestMethod.GET)
@@ -44,7 +51,7 @@ public class MemberController {
 
 	//회원가입 처리
 	   @RequestMapping(value = "/join.do", method = RequestMethod.POST)
-	   public String postJoin(@ModelAttribute MemberVO vo) throws Exception {
+	   public String postJoin(@ModelAttribute MemberVO vo ,  HttpServletRequest request) throws Exception {
 	      logger.info("회원가입 처리 성공");
 
 	      int result = service.idChk(vo);
@@ -56,12 +63,22 @@ public class MemberController {
 	            vo.setM_pwd(secPwd);
 
 	            service.join(vo);
+	            mailService.mailSendWithUserKey(vo.getM_email(), vo.getM_id(), request);
 	         }
 	         //입력된 아이디가 존재한다면 다시 회원가입 페이지로 돌아간다
 	      } catch(Exception e) {
 	         throw new RuntimeException();
 	      }
 	      return "member/join/joinSuccess";
+	   }
+	   
+	 //이메일인증시 사용
+	   @RequestMapping(value = "/updateState.do")
+	   public String updateState(@RequestParam String m_id) {
+		   
+		   service.emailupdateState(m_id);
+		   
+		   return "member/login/login";
 	   }
 	
 	//아이디 중복체크

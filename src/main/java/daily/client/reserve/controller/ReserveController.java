@@ -169,10 +169,4 @@ public class ReserveController {
 				
 	}
 	
-	// 00. 계좌이체
-	/*
-	 * @RequestMapping(value = "/reservePaymentAccount") public String
-	 * reservePaymentAccount() { return "client/reserve/paymentAccount"; }
-	 */
-	
 }

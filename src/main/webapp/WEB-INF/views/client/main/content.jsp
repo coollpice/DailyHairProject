@@ -69,7 +69,6 @@
 		
 		<!-- Slide Image List -->
 		<div class="carousel-inner" role="listbox">
-		
 			<!-- Slide 1 -->
 			<!-- <div class="carousel-item active" style="background: url(/resources/assets/img/slide/ShopImage_002.jpg);"> -->
 			<div class="carousel-item active" style="background: url(/resources/assets/img/slide/ShopImage_002.jpg);">

@@ -41,5 +41,11 @@ public class ReserveServiceImpl implements ReserveService {
 	}
 
 
+	@Override
+	public ReserveVo myReservationDetail(int rest_num) {
+		return reserveDao.myReservationDetail(rest_num);
+	}
+
+
 
 }

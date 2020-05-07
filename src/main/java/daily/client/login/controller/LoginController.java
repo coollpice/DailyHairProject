@@ -1,6 +1,5 @@
 package daily.client.login.controller;
 
-import java.lang.Thread.State;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import daily.client.member.service.MemberService;
@@ -63,11 +61,15 @@ public class LoginController {
 	         session.setAttribute("login", vo);
 	         mav.setViewName("client/main/main");
 	         return mav;
-	    }else {
+	    }else if(vo.getM_state()==0){
 	    	 mav.addObject("msg", "비활성화된 계정입니다.");
-	    	 mav.addObject("msz"," 관리자에게 문의하세요.");
+	    	 mav.addObject("msz","관리자에게 문의하세요.");
 		     mav.setViewName("member/login/login");
 		     return mav;
+	    }else {
+	    	mav.addObject("msg","이메일 인증진행중인 계졍입니다.");
+	    	mav.setViewName("member/login/login");
+	    	return mav;
 	    }
 	      }else {
 	         mav.addObject("msg", "패스워드를 정확하게 입력 해주시길 바랍니다.");
