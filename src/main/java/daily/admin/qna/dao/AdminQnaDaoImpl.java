@@ -32,7 +32,7 @@ public class AdminQnaDaoImpl implements AdminQnaDao {
 	}
 	@Override
 	public int boardListCnt(QnaVO qvo) {
-		return sqlSession.selectOne("ListCnt",qvo);
+		return sqlSession.selectOne("boardListCnt",qvo);
 	}
 	@Override
 	public List<QnaVO> List(QnaVO qvo) {
@@ -45,9 +45,6 @@ public class AdminQnaDaoImpl implements AdminQnaDao {
 	@Override
 	public void updateStateDel(replyVO repVO) {
 		int result = sqlSession.update("updateStateDel", repVO);
-		if(result==1) {
-			System.out.println("답변여부 상태변경 완료 0 -> 1");
-		}
 	}
 
 

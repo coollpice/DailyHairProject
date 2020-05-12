@@ -5,12 +5,14 @@
 <mapper namespace="daily.admin.qna.dao.AdminQnaDao">
 
 	<sql id="commonList">
-		select a.qna_num qna_num ,a.m_id m_id ,a.qna_title qna_title , a.qna_regdate qna_regdate , a.qna_state qna_state, a.qna_file qna_file, a.qna_content qna_content  
-		from
-		qna a
-		inner join member b
-		on
-		a.m_id = b.m_id
+		SELECT 
+			a.qna_num qna_num ,a.m_id m_id ,a.qna_title qna_title , a.qna_regdate qna_regdate , a.qna_state qna_state, a.qna_file qna_file, a.qna_content qna_content  
+		FROM
+			qna a
+		INNER JOIN 
+			member b
+		ON
+			a.m_id = b.m_id
 		<where>
 			<if test="search =='all'">
 				1=1
@@ -26,15 +28,16 @@
 
 	<select id="List" resultType="qna" parameterType="qna">
 		SELECT
-		qna_num, qna_title, m_id, to_char(qna_regdate,'YYYY-MM-DD') as
-		qna_regdate,
-		qna_content, qna_state, qna_file
+			qna_num, qna_title, m_id, to_char(qna_regdate,'YYYY-MM-DD') as qna_regdate, qna_content, qna_state, qna_file
 		FROM(
-		Select list.*, Rownum as RNUM
-		FROM (<include refid="commonList" />
-		ORDER BY
-		qna_state ASC,qna_regdate ASC )
-		list)
+			SELECT 
+				list.*, Rownum as RNUM
+			FROM 
+				(<include refid="commonList" />
+				 ORDER BY
+					qna_state ASC,qna_regdate ASC 
+				) list
+			)
 		<where>
 			<if test="start_row != null and start_row !=''">
 				<if test="end_row != null and end_row !=''">
@@ -59,39 +62,41 @@
 	<insert id="insertReply" parameterType="reply">
 		<selectKey keyProperty="rep_num" order="BEFORE"
 			resultType="int">
-			select reply_seq.nextval
-			from dual
+			SELECT 
+				reply_seq.nextval
+			FROM 
+				dual
 		</selectKey>
-		INSERT INTO reply(rep_num, qna_num, rep_name, rep_content
-		<if test="rep_file != null">
-			,rep_file
-		</if>
-		)
-		VALUES(
-		#{rep_num},#{qna_num},#{rep_name},#{rep_content}
-		<if test="rep_file != null">
-			,#{rep_file, jdbcType=VARCHAR}
-		</if>
-		)
+		INSERT INTO 
+			reply(rep_num, qna_num, rep_name, rep_content
+			<if test="rep_file != null">
+				,rep_file
+			</if>
+			)
+		VALUES
+			(#{rep_num},#{qna_num},#{rep_name},#{rep_content}
+			<if test="rep_file != null">
+				,#{rep_file, jdbcType=VARCHAR}
+			</if>
+			)
 	</insert>
 
 	<update id="updateState" parameterType="reply">
-		UPDATE
-		QNA
+		UPDATE	
+			qna
 		SET
-		qna_state = 1
+			qna_state = 1
 		WHERE
-		qna_num =#{qna_num}
+			qna_num =#{qna_num}
 	</update>
 
 	<update id="updateStateDel" parameterType="reply">
 		UPDATE
-		QNA
+			qna
 		SET
-		qna_state
-		= 0
+			qna_state = 0
 		WHERE
-		qna_num =#{qna_num}
+			qna_num =#{qna_num}
 	</update>
 
 	<select id="selectReply" parameterType="int" resultType="reply">
@@ -101,7 +106,7 @@
 		where qna_num = #{qna_num}
 	</select>
 
-	<select id="ListCnt" resultType="int">
+	<select id="boardListCnt" resultType="int">
 		SELECT
 		nvl(count(1),0)
 		FROM(
@@ -118,12 +123,4 @@
 	</delete>
 
 	<!-- 회원 상세보기 -->
-	<select id="memberDetail" parameterType="reservation"
-		resultType="member">
-		SELECT m_id, m_num, m_name, m_pwd, m_gender, m_phone,
-		m_email, m_memo, m_state, to_char(m_date,'YYYY-MM-DD') as m_date
-		FROM
-		member
-		WHERE m_id = #{m_id}
-	</select>
 </mapper>

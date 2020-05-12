@@ -68,6 +68,9 @@ float: right;
 			if ($("#search").val() == 'm_id') {
 				value = "#list tr td.name";
 			}
+			if ($("#search").val() == 'm_phone') {
+				value = "#list tr td.name";
+			}
 			$(value + ":contains('" + word + "')").each(
 					function() {
 						var regex = new RegExp(word, 'gi');
@@ -133,7 +136,7 @@ float: right;
 						name="keyword" id="keyword" class="form-control" /> <input
 						type="button" id="searchData" value="검색" class="btn" />
 				</form>
-				<table class="table table-condensed table-hover">
+				<table class="table table-condensed table-hover" style="text-align: center;">
 					<colgroup>
 						<col width="5%">
 						<col width="20%">
@@ -141,16 +144,16 @@ float: right;
 						<col width="15%">
 						<col width="20%">
 					</colgroup>
-					<thead>
-						<tr class="active">
-							<th>글번호</th>
-							<th>아이디</th>
-							<th>제목</th>
-							<th>작성일</th>
-							<th>답변상태</th>
+					<thead class="text-center">
+						<tr class="active" >
+							<td><b>글번호</b></td>
+							<td><b>아이디</b></td>
+							<td><b>제목</b></td>
+							<td><b>작성일</b></td>
+							<td><b>답변상태</b></td>
 						</tr>
 					</thead>
-					<tbody id="list">
+					<tbody id="list" >
 						<c:choose>
 							<c:when test="${not empty qnaList }">
 								<c:forEach var="qna" items="${qnaList}">

@@ -30,6 +30,7 @@ public class AdminQnaController {
 	@Autowired
 	AdminQnaService qnaService;
 
+	//전체 리스트 출력
 	@RequestMapping(value = "/qna/qnaList.do", method = RequestMethod.GET)
 	public ModelAndView qnaList(@ModelAttribute QnaVO qvo, Model model) {
 		log.info("QnA List 호출 메소드 실행");
@@ -37,7 +38,7 @@ public class AdminQnaController {
 
 		// 페이징 세팅
 		Paging.setPage(qvo);
-		int total = qnaService.boardListCnt(qvo);
+		int total = qnaService.boardListCnt(qvo); //게시글 수
 
 		List<QnaVO> qnaList = qnaService.List(qvo);
 		mav.addObject("qnaList", qnaList);
@@ -50,31 +51,28 @@ public class AdminQnaController {
 	}
 	
 	
-	//상세보기
+	//게시글 상세보기
 	@RequestMapping(value = "/qna/qnaDetail.do")
 	public ModelAndView qnaDetail(@ModelAttribute QnaVO qvo) {
 		log.info("QnA Detail 호출 메소드 실행");
-		log.info("Detail >>> " + qvo.getQna_num());
 
 		ModelAndView mav = new ModelAndView();
 		QnaVO detail = qnaService.detail(qvo);
 
-		if (detail.getQna_state() == 1) {
+		if (detail.getQna_state() == 1) { //게시글 답변
 			replyVO reply = qnaService.selectReply(detail.getQna_num());
 			mav.addObject("reply", reply);
 		}
 		mav.addObject("detail", detail);
 		mav.setViewName("admin/qna/adminQnaDetail");
-		log.info("QnA Detail 호출 메소드 종료");
 		return mav;
 	}
 
+	//답변 입력 
 	@ResponseBody
 	@RequestMapping(value = "/qna/qnaReplyInsert.do", method = RequestMethod.POST)
 	public int qnaReplyInsert(@ModelAttribute replyVO repVO, HttpServletRequest request) throws IOException {
 		log.info("QnA Reply Insert 호출 메소드 실행");
-
-		System.out.println(repVO.getUploadFile());
 
 		// 답변작성시 첨부파일이 있으면 파일업로드
 		if (!repVO.getUploadFile().isEmpty()) {
@@ -83,30 +81,21 @@ public class AdminQnaController {
 		}
 
 		int result = qnaService.insertReply(repVO); // 답변테이블에 insert
+		
 		if (result == 1) { // insert성공시
 			int updateState = qnaService.updateState(repVO); // 답변이 달린 게시물의 답변여부 컬럼값 바꿔주기 (기본값 : 0 (답변대기) -> 1 (답변완료))
-			System.out.println(updateState);
 			return updateState;
 		}
-		/*
-		 * if (result == 1) { url = "/admin/qna/qnaList.do";
-		 * log.info("QnA Reply Update 호출 메소드 종료"); } else { url =
-		 * "/admin/qna/adminQnaDetail" + repVO.getQna_num();
-		 * 
-		 * }
-		 */
 		return 0;
 	}
 
 	// 답변글 삭제 메소드
 	@ResponseBody
 	@RequestMapping(value = "/qna/qnaReplyDelete.do")
-	public int qnaDelete(@ModelAttribute replyVO repVO, HttpServletRequest request) throws IOException {
+	public int qnaReplyDelete(@ModelAttribute replyVO repVO, HttpServletRequest request) throws IOException {
 		log.info("delete 메소드 진입");
 
-		System.out.println(repVO.getQna_num()+"가 들어감");
 		int result = qnaService.delete(repVO);
-		System.out.println( result +"가 리턴됨");
 		if (result == 1) {
 			// 첨부파일이 있으면 파일 삭제
 			if (!repVO.getRep_file().isEmpty()) {

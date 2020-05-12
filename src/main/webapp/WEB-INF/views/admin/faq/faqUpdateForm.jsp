@@ -7,9 +7,16 @@
 <meta charset="UTF-8">
 <style type="text/css">
 textarea {
-	width: 700px;
+	width: 100%;
 	height: 100px;
 	resize: none;
+}
+
+#listMenu, #btnMenu{
+	float: right;
+}
+#contents{
+width: 1000px;
 }
 </style>
 <script type="text/javascript"
@@ -54,7 +61,7 @@ textarea {
 			location.href="/admin/adminLoginForm.do";
 		</script>
 	</c:if>
-	<div>
+	<div id="contents">
 		<div>
 			<h2>자주하는 질문-게시글 수정</h2>
 		</div>
@@ -68,7 +75,7 @@ textarea {
 		<form id="updateForm">
 			<input type="hidden" id="faq_num" name="faq_num"
 				value="${updateData.faq_num }" />
-			<table>
+			<table class="table">
 				<tr>
 					<td><span style="color: red;">*</span>질문</td>
 					<td>&nbsp;&nbsp;<textarea id="faq_question" name="faq_question" cols="35"
@@ -83,7 +90,7 @@ textarea {
 		</form>
 		<!-- 게시글 내용 출력 끝 -->
 		<!-- 글 등록 버튼 시작-->
-		<div>
+		<div id="btnMenu">
 			<input type="button" value="수정완료" class="but btn" id="faqUpdateBtn">
 			<input type="button" value="게시글 삭제" class="but btn" id="faqDeleteBtn">
 
