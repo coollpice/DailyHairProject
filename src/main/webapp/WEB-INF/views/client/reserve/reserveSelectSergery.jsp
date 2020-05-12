@@ -124,7 +124,7 @@
 				checkArr.push($(this).val());
 		   });				
 		   
-		$("#holy").val(checkArr);
+		$("#array").val(checkArr);
 		   
 		  $("#stylingForm").attr({
 				"method":"post",
@@ -205,7 +205,7 @@
 				<input type="hidden" id="rest_time" name="rest_time" value="${data.rest_time }"/>
 				<input type="hidden" id="des_num" name="des_num" value="${data.des_num}"/>
 				<textarea rows="5" cols="50" id="rest_memo" name="rest_memo" placeholder=" 시술 시 참고사항을 적어주세요"></textarea>
-				<input type="hidden" name="holy" id="holy" value=""/>
+				<input type="hidden" name="array" id="array" value=""/>
 				<input type="hidden" name="rest_totalprice" id="rest_totalprice" value=""/>
 				</form>
 			</div>

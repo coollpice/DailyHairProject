@@ -49,17 +49,17 @@ float: left;
 										+ '<td>' + data[i].des_job + '</td>'
 										+ '<td>' + data[i].des_name + '</td>'
 										+ '<td>' + data[i].des_phone + '</td>'
-										+ '<td class='+'holyshit'+'>'
+										+ '<td class='+'state'+'>'
 										+ data[i].des_state + '</td>'
 										+ '<td>'+'<input type='+'button id='+'modify name='+'modify class="btn modify" value='+'[상세보기/수정]'+'>'+'</td>'
 										+'</tr>'
 							} 					
 							$(".deslist").append(html);
 							
-							if ($(".holyshit").html() == 1) {
-								$(".holyshit").html("활성화");
+							if ($(".state").html() == 1) {
+								$(".state").html("활성화");
 							} else {
-								$(".holyshit").html("비활성화");
+								$(".state").html("비활성화");
 							}
 							
 						}
