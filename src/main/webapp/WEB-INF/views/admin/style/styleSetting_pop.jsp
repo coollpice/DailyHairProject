@@ -304,12 +304,6 @@ margin-top: 5px;
 </head>
 <body>
 
-<c:if test="${empty login }">
-		<script type="text/javascript">
-			alert("로그인이 필요합니다.");
-			location.href="/admin/adminLoginForm.do";
-		</script>
-	</c:if>
 
 	<h1 align="center">시술 관리</h1>
 	<div class="infoContainer">

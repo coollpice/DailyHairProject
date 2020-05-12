@@ -47,7 +47,6 @@ color: gray;
 			let rest_comment = $("#rest_comment").val();
 			let rest_num = "${reservation.rest_num}";
 			
-	
 	 if(confirm("저정하시겠습니까? \n※예약상태를 잘확인해주세요")){
 			
 		 $.ajax({
@@ -103,10 +102,10 @@ color: gray;
 </script>
 </head>
 <body>
- <h2 align="center">예약상세</h2>
+ <h2 align="center">시술내역 상세보기</h2>
  <form name="stateForm" id="stateForm">
  <select id="rest_state" name="rest_state" class="form-control" style="margin-left: 20px;">
- 	<option value="${reservation.rest_state}">예약완료</option>
+ 	<option value="${reservation.rest_state}">시술완료</option>
  	<option value="0">예약취소</option>
  	<option value="1">예약중</option>
  </select>

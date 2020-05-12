@@ -36,8 +36,6 @@ margin-right: 5px;
 	 
 	});
 	 
-	 
-	 
 	//검색 후 검색 대상과 검색 단어를 출력한다
 		var word = "<c:out value='${data.keyword}'/>";
 		var value="";
@@ -126,8 +124,8 @@ margin-right: 5px;
 						<c:forEach var="result" items="${resultList}">
 							<tr data-num="${result.rest_num}" data-name="${result.m_id}" class="resultDetail">
 								<td>${result.rest_hairdate} / ${result.rest_time}</td>
-								<td class="name">${result.m_id}</td>
-								<td>${result.m_name}</td>
+								<td>${result.m_id}</td>
+								<td class="name">${result.m_name}</td>
 								<td class="phone">${result.m_phone}</td>
 								<td>${result.des_name}</td>
 								<td>${result.rest_totalprice}원</td>
@@ -155,7 +153,7 @@ margin-right: 5px;
 					<td><select id="search" name="search" class="form-control">
 							<option value="all">전체</option>
 							<option value="m_name">이름</option>
-							<option value="m_phone">전화번호</option>
+							<option value="m_phone">휴대폰뒷번호</option>
 						</select>
 						<input type="text" id="hidden" style="display: none;">
 						<input type="text" name="keyword" id="keyword" class="form-control"/>

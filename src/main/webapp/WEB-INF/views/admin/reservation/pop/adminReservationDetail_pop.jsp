@@ -46,7 +46,6 @@ color: gray;
 			let rest_state = $("#rest_state").val();
 			let rest_comment = $("#rest_comment").val();
 			let rest_num = "${reservation.rest_num}";
-			
 	
 	 if(confirm("저정하시겠습니까? \n※예약상태를 잘확인해주세요")){
 			
@@ -66,7 +65,6 @@ color: gray;
 				}
 			}); //ajax 종료
 		}
-	 
 		});
 		
 		
@@ -92,11 +90,6 @@ color: gray;
 					
 					}
 				}); //ajax 종료
-				
-			
-				
-				
-				
 	 	});
 	 	
 	});

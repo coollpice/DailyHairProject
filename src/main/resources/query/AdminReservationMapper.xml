@@ -75,7 +75,7 @@
 				a.rest_state = 2
 			</if>
 		</where>
-	     	ORDER BY a.rest_time desc, a.rest_hairdate 
+	     	ORDER BY a.rest_hairdate desc
 	</select> 
 	
 
@@ -119,7 +119,7 @@
 				</if>
 			</if>
 		</where>
-	    ORDER BY rest_hairdate desc, rest_time 
+	    ORDER BY rest_hairdate desc, rest_time desc 
 	</select> 
 	
 	<!-- 검색 조건마다 레코드 총 개수구하기 -->

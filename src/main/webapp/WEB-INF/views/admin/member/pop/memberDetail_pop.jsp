@@ -23,7 +23,6 @@
 			var state = $("#m_state").val();
 			var num = ${detail.m_num};
 			//활성화/비활성화 선택했는지 확인후 수정하기 완료
-
 			if (state == "#") {
 				alert("상태값을 선택하세요");
 				$("#m_state").focus();
@@ -106,13 +105,6 @@ width : 110px;
 </head>
 <body>
 
-<c:if test="${empty login }">
-		<script type="text/javascript">
-			alert("로그인이 필요합니다.");
-			location.href="/admin/adminLoginForm.do";
-		</script>
-	</c:if>
-
 	<h1 align="center">회원상세보기</h1>
 	<select name="m_state" id="m_state" class="form-control" style="margin-left: 20px;">
 		<option value="${detail.m_state}">
@@ -168,7 +160,7 @@ width : 110px;
 				</table>
 		</form>
 	</div>
-	<div class="infoContainer">
+	<div class="infoContainer" style="width: 95%; height: 350px; overflow: auto">
 		<h4 align="center" style="color: gray;">이전 시술내역</h4>
 		<label style="margin-left: 10px; color: gray;"><span style="color: red;">*</span>클릭하여 시술명 상세보기</label>
  	<table class="table table-hover">

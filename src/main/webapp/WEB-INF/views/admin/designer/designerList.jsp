@@ -31,9 +31,7 @@ float: left;
 		//선택된 디자이너 상태에 따라서 동적으로 리스트가 변경
 		$(".order").change(
 				function() {
-
 					let des_state = $(".order").val();
-
 					$.ajax({
 						url : "/admin/designer/desAjaxList.do",
 						type : "post",
@@ -56,7 +54,6 @@ float: left;
 										+ '<td>'+'<input type='+'button id='+'modify name='+'modify class="btn modify" value='+'[상세보기/수정]'+'>'+'</td>'
 										+'</tr>'
 							} 					
-							
 							$(".deslist").append(html);
 							
 							if ($(".holyshit").html() == 1) {

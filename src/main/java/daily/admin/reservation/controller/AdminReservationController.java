@@ -63,10 +63,14 @@ public class AdminReservationController {
 		log.info("reservationDeatilForm 호출");
 
 		ModelAndView mav = new ModelAndView();
+		//회원상세보기
 		MemberVO mvo = AdminmemberService.memberDetailForm(rvo1.getM_id());
+		//예약상세보기
 		ReserveVo rvo = adminReservationService.reservationDetail(rvo1.getRest_num());
+		//시술이름리스트
 		List<StyleVO> svoList = styleService.stylingnameList(rvo1.getRest_num());
 
+		//이전예약리스트
 		List<ReserveVo> resultList = adminReservationService.resultList(rvo1);
 
 		if (rvo != null) {
@@ -98,7 +102,8 @@ public class AdminReservationController {
 	public int updateReservation(ReserveVo rvo) {
 
 		log.info("updateReservation 호출완료");
-
+		
+		//예약 상태를 변경하는 메소드
 		int result = adminReservationService.updateReservation(rvo);
 
 		return result;
@@ -145,10 +150,14 @@ public class AdminReservationController {
 	@RequestMapping(value = "/reservation/resultReservationDetail.do")
 	public String resultReservationDetail(int rest_num, String m_id, Model model) {
 		log.info("resultReservationDetail 호출완료");
-
+		
+		//예약상세보기
 		ReserveVo resultDetail = adminReservationService.reservationDetail(rest_num);
+		//시술이름리스트
 		List<StyleVO> styleList = styleService.stylingnameList(rest_num);
+		//회원상세보기
 		MemberVO mvo = AdminmemberService.memberDetailForm(m_id);
+		
 		model.addAttribute("reservation", resultDetail);
 		model.addAttribute("nameList", styleList);
 		model.addAttribute("member", mvo);
@@ -169,7 +178,8 @@ public class AdminReservationController {
 		// 전체 레코드수 구하기
 		int total = adminReservationService.searchListCnt(rvo);
 		log.info(total + "<<레코드수");
-
+		
+		//취소내역리스트
 		List<ReserveVo> cancleList = adminReservationService.reservationCancleList(rvo);
 
 		model.addAttribute("data", rvo);
