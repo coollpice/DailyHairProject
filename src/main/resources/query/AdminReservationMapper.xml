@@ -110,7 +110,8 @@
 			 	<if test="search==null">
 			 		rest_state = #{rest_state}
 			 	</if>
-			 </where>) list
+			 </where>
+			 ORDER BY rest_hairdate desc) list
 			)
 		<where>
 			<if test="start_row != null and start_row !=''">
