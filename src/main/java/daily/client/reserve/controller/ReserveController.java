@@ -137,7 +137,7 @@ public class ReserveController {
 	
 	// 00. 결제하기로 이동
 	@RequestMapping(value = "/reservePayment.do", method = RequestMethod.POST)
-	public String reservePayment(@ModelAttribute ReserveVo rvo, Model model, @RequestParam("holy")String style_number) {
+	public String reservePayment(@ModelAttribute ReserveVo rvo, Model model, @RequestParam("array")String style_number) {
 		
 		List<StyleVO> styleList = styleService.stylingList(rvo.getDes_num());
 		DesignerVO dvo = designerService.designerDetail(rvo.getDes_num());
