@@ -2,10 +2,7 @@
 
 //입력값 체크후 디자이너 등록하기
 function insertDes() {
-	
-
 	var formData = new FormData($("#insertForm")[0]);
-	
 	if (!chkSubmit($("#des_name"), "이름을")) {
 		return;
 	} else if (!chkSubmit($("#des_job"), "직급을")) {

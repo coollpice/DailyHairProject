@@ -49,6 +49,7 @@
 		SET styling_option= #{styling_option} ,styling_name = #{styling_name} ,styling_price = #{styling_price}
 		WHERE styling_num = #{styling_num} </update> 
 		
+		 <!-- 시술 삭제하기 -->
 		 <delete id="deleteStyling" parameterType="int">
 		 DELETE 
 		 FROM styling 

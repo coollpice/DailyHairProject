@@ -84,7 +84,6 @@ var openDialog = function(uri, name, options, closeCallback) {
 								alert("시술 등록에 성공하였습니다.");
 								$("#styling_name").val("");
 								$("#styling_price").val("");
-							
 							//성공시 적용된 화면을 보여주기위해 비동기로 적용된 리스트 출력하기
 							$.ajax({
 							url : "/admin/style/styleAjax.do",
@@ -92,7 +91,6 @@ var openDialog = function(uri, name, options, closeCallback) {
 							data : {
 								"des_num" : des_num
 							},
-							
 							success : function(data){
 							$(".ajax").html("");
 							let html = "";
@@ -162,7 +160,6 @@ var openDialog = function(uri, name, options, closeCallback) {
 		//수정버튼 클릭시 팝업창띄움
 		$(document).on("click",".updateBtn",function(event){
 			var styling_num = $(this).parents("tr").attr("data-num");
-			alert(styling_num);
 			
 			//자식 팝업창이 닫히면 콜백함수실행됨
 			openDialog("/admin/style/styleUpdateForm.do?styling_num="+styling_num, "pop1", "width=900, height=350, left=600, top=200",function(win){

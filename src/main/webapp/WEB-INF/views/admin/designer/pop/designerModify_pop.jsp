@@ -13,6 +13,7 @@
 <script type="text/javascript" src="/resources/include/js/designer.js"></script>
 <script type="text/javascript" src="/resources/include/js/common.js"></script>
 <script type="text/javascript">
+
 	//파일다운로드
 	function fn_fileDown(des_num) {
 		var formObj = $("#downForm");
@@ -20,7 +21,6 @@
 		formObj.attr("action", "/admin/designer/download.do");
 		formObj.submit();
 	}
-	
 	
 	//이미지 다운로드
 	function fn_fileDownImage(des_num) {
@@ -100,8 +100,6 @@
 	
 		}); 
 		
-	
-		
 		//디자이너 비활성화 버튼 클릭시 실행
 		$("#deleteBtn").click(function() {
 			if (confirm("정말로 비활성화시키시겠습니까?")) {
@@ -121,7 +119,7 @@
 				}); //비활성화  ajax종료
 			}
 		});// 디자이너 비활성화 이벤트 종료
-
+		
 		//디자이너 활성화 버튼 클릭시 실행
 		$("#openBtn").click(function() {
 			if (confirm("정말로 활성화시키시겠습니까?")) {
@@ -141,7 +139,6 @@
 				}); //활성화  ajax종료
 			}
 		}); //디자이너 활성화 이벤트 종료
-		
 		
 		 //현재 프로필사진 보여주기
 		let image = "<c:out value='${des.des_image}'/>";
