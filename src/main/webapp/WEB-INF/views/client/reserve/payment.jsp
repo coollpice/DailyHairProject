@@ -74,7 +74,7 @@
 		$("input:radio[id='kakao']:radio[value='카카오페이']").prop('checked', true);
 		
 		BootPay.request({
-			price: "${data.rest_totalprice }", //실제 결제되는 가격
+			price: 5000, //실제 결제되는 가격
 			application_id: "5e9f876c02f57e001f1ed53d",
 			name: 'dailyhair', //결제창에서 보여질 이름
 			pg: 'kakao',
