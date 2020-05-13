@@ -38,6 +38,10 @@ public class AdminBiController {
 		ModelAndView mav = new ModelAndView();
 		
 		List<AdminBiVO> result = biService.searchList(biVO);
+		
+		mav.addObject("fromDate",biVO.getFromDate());
+		mav.addObject("toDate",biVO.getToDate());
+		
 		mav.addObject("result", result);
 		mav.setViewName("admin/bi/searchList");
 		return mav;

@@ -39,8 +39,8 @@ h5 {
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		
-		
+		$("#datepicker1").val('${fromDate}');
+		$("#datepicker2").val('${toDate}');
 		$("#datepicker2").attr("disabled",true);
 		
 		
@@ -48,6 +48,7 @@ h5 {
 			format : 'yyyy-mm-dd',
 		}).on("changeDate",function(){
 			$("#datepicker2").attr("disabled",false);
+			$("#datepicker2").val('');
 		});
 
 		$("#datepicker2").datepicker({
@@ -78,6 +79,7 @@ h5 {
 		});
 		
 		$("#searchBtn").click(function() {
+			
 			
 			if($("#datepicker1").val()==''){
 				alert("날짜를 선택해주세요");
@@ -126,7 +128,7 @@ h5 {
 		var data = google.visualization.arrayToDataTable(array);
 
 		var options = {
-			title : '매출 현황',
+			title : "${fromDate} ~ ${toDate} \n매출 현황",
 			legend : {
 				position : 'bottom'
 			}

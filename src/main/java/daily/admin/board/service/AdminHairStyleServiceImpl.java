@@ -42,7 +42,6 @@ public class AdminHairStyleServiceImpl implements AdminHairStyleService {
 		/* 상세이미지 변경 */
 		// 상세이미지1
 		if (!hsvo.getUploadFile2().isEmpty()) {
-			System.out.println("{" + hsvo.getHs_img1() + "]");
 			if (!hsvo.getHs_img1().isEmpty()) { // 이미지가 있으면 파일 삭제
 				FileUploadUtil.fileDelete(hsvo.getHs_img1(), request);
 			}

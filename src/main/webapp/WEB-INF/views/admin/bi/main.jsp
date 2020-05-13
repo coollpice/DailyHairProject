@@ -41,9 +41,11 @@ h5 {
 
 	$(function() {
 
+		//선택순서를 위한 설정 
 		$("#datepicker2").attr("disabled",true);
 		
 		
+	
 		$("#datepicker1").datepicker({
 			format : 'yyyy-mm-dd',
 		}).on("changeDate",function(){
@@ -52,9 +54,9 @@ h5 {
 
 		$("#datepicker2").datepicker({
 			format : 'yyyy-mm-dd'
-			/* ,endDate : new Date() */
 		}).on("changeDate", function() {
 			
+			//날짜 차이 계산을 위한 식
 			var fromDate = $("#datepicker1").val();
 			var toDate = $("#datepicker2").val();
 
@@ -78,6 +80,8 @@ h5 {
 
 		});
 		
+		
+		//유효성 검사
 		$("#searchBtn").click(function() {
 			
 			if($("#datepicker1").val()==''){
