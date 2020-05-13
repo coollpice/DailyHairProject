@@ -39,11 +39,8 @@ public class StyleController {
 		log.info("stylingList 호출완료");
 
 		ModelAndView mav = new ModelAndView();
-
 		List<DesignerVO> dvo = designerService.designerList();
-
 		mav.addObject("desList", dvo);
-
 		mav.setViewName("admin/style/styleSetting_pop");
 
 		return mav;

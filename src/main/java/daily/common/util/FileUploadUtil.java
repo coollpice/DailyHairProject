@@ -21,7 +21,6 @@ public class FileUploadUtil {
 		}
 		fileDir.mkdirs();
 	}
-	
 	//파일 업로드 메소드
 	public static String fileUpload(MultipartFile file, HttpServletRequest request, String fileName)throws IOException{
 		log.info("fileUpload 호출 성공");
@@ -30,11 +29,9 @@ public class FileUploadUtil {
 		//MultiparFile 클래스의 getFile()메소드로 클라이언트가 업로드한 파일
 		String org_name = file.getOriginalFilename();
 		log.info("org_name : "+org_name);
-		
 		//파일명 변경(중복되지않게)
 		if(org_name != null && (!org_name.equals(""))) {
 			real_name = fileName+"_"+System.currentTimeMillis()+"_"+org_name;
-			
 			//저장할 파일 이름
 			String docRoot = request.getSession().getServletContext().getRealPath("/uploadStorage/"+fileName);
 			makeDir(docRoot);
