@@ -188,6 +188,7 @@ color: gray;
  	</div>
 	<div class="infoContainer">
  	 <h4 align="center" style="color: gray;">이전 시술내역</h4>
+ 	 <div class="infoContainer" style="width: 95%; height: 350px; overflow: auto">
  	<table class="table table-hover">
  		<colgroup>
  			<col width="10%">
@@ -228,6 +229,7 @@ color: gray;
  	</c:choose>
  	</tbody>
  	</table>
+ 	</div>
  	</div>
  	<div class="btnContainer" style="position: absolute; right: 20px;">
  		<input type="button" name="updateBtn" id="updateBtn" value="저장" class="btn" style="background-color: white; border: 1px solid gray; margin-right: 10px;"/>

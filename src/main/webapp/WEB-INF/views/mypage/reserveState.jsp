@@ -82,7 +82,7 @@ $(function() {
 	$(".cancleBtn").click(function() {
 		let rest_num = $(this).parents("tr").attr("data-num");
 		
-		if (confirm("예약을 취소하시겠습니까?")) {
+		if (confirm("예약을 취소하시겠습니까?\n당일 예약취소는 환불이 불가합니다.")) {
 			$.ajax({
 				url : "/mypage/cancleReservation.do",
 				type : "post",

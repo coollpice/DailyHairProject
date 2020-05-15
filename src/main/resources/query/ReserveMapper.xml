@@ -26,7 +26,7 @@
 		FROM reservation a inner join designer b
 		on a.des_num = b.des_num 
 		WHERE m_id = #{m_id}
-		ORDER BY rest_regdate , rest_time 
+		ORDER BY rest_regdate desc , rest_time 
 	</select>
 	
 	<!-- 예약 상세 목록 -->

@@ -36,7 +36,6 @@ text-align: center;
 		month = month >= 10 ? month : '0' + month;
 		date = date >= 10 ? date : '0' + date;
 		
-		
 		$("#datePicker").val(year+'-'+month+'-'+date);
 		
 		
@@ -91,7 +90,7 @@ text-align: center;
 			var m_id = $(this).attr("data-name");
 			window.open("/admin/reservation/reservationDetailForm.do?rest_num="
 					+rest_num+"&m_id="+m_id, "reservationpop",
-					"width=800, height=800, left=600, top=100");
+					"width=850, height=800, left=600, top=100");
 		});
 		
 		//디자이너 셀렉트박스 바꿀때마다 날짜 초기화

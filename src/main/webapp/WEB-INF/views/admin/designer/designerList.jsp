@@ -107,9 +107,9 @@ float: left;
 			</form>
 			<table class="table table-hover">
 				<colgroup>
-					<col width="15%">
-					<col width="20%">
 					<col width="10%">
+					<col width="20%">
+					<col width="15%">
 					<col width="15%">
 					<col width="20%">
 					<col width="10%">
