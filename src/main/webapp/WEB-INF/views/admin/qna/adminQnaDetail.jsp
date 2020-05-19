@@ -101,7 +101,7 @@ float: right;
 		})
 		//답변입력
 		$("#insertReply").click(function() {
-			if (!chkData("#rep_name", "작성자를"))
+			if (!chkData("#rep_name", "제목을"))
 				return;
 			if (!chkData("#rep_content", "답변내용을"))
 				return;
@@ -211,9 +211,9 @@ float: right;
 
 					<table class="table">
 						<tr>
-							<td class="he">작성자</td>
+							<td class="he">제목</td>
 							<td colspan="7"><input class="inputArea" type="text"
-								id="rep_name" name="rep_name" placeholder="작성자"></td>
+								id="rep_name" name="rep_name" placeholder="제목"></td>
 						</tr>
 						<tr>
 							<td class="he">내용</td>
@@ -245,7 +245,7 @@ float: right;
 						value="${detail.qna_num}">
 					<table class="table">
 						<tr>
-							<td class="he">작성자</td>
+							<td class="he">제목</td>
 							<td class="tc" >${reply.rep_name}</td>
 							<td></td>
 						</tr>
