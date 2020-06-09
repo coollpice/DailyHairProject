@@ -195,6 +195,11 @@
 				alert("비밀번호가 일치하지 않습니다.");
 				return false;
 			}
+			if (!pwJ.test($("#m_pwd").val())) {
+				alert("형식에 맞게 입력하세요");		//패스워드
+				$("#m_pwd").focus();
+				return false;
+			}
 					
 			if ($("#m_name").val() == "") {
 				alert("필수 입력 요소들을 모두 입력해주시기 바랍니다.");		//이름
